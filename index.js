@@ -3,6 +3,8 @@ const cors = require('cors');
 const dns = require('dns');
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use(cors({ origin: true }));
 
 app.get('/:domain', (req, res) => {
@@ -16,3 +18,7 @@ app.get('/:domain', (req, res) => {
         return res.send(ips);
     });
 });
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  });
